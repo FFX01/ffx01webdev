@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+{% block main %}
+    <div class="row clearfix">
+        <div class="col-1-1 main-content-title">
+            <h2>{{blog.title}}</h2>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-1-1">
+            <img src="{{blog.image.url}}" width="100%" height="auto">
+        </div>
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1">
+            <p>{{blog.timestamp}}</p>
+            <div class="blog-body">{{blog.body|safe}}</div>
+        </div>
+    </div>
+    <div class="row clearfix comment-row">
+        <div class="col-1-1">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{comment_form.as_p}}
+                <input type="submit" value="Post">
+            </form>
+        </div>
+    </div>
+    {% if comments %}
+        {% for comment in comments %}
+            <div class="row clearfix">
+                <div class="col-1-1">
+                    <div class="comment-box">
+                        {% if comment.author %}
+                            <p class="comment-title">{{comment.author}} - {{comment.timestamp}}</p>
+                        {% else %}
+                            <p class="comment-title">Anonymous - {{comment.timestamp}}</p>
+                        {% endif %}
+                        <p class="comment-body">{{comment.body}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="row clearfix">
+            <div class="col-1-1">
+                <h3>No Comments yet!</h3>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

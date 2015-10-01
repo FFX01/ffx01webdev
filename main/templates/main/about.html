@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% block main %}
+    <div class="row clearfix main-content">
+        <div class="col-1-1 main-content-title">
+            <h1>About Justin</h1>
+        </div>
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1">
+            <p>Text about me.</p>
+        </div>
+    </div>
+    <div class="row-clearfix main-content">
+        <div class="col-1-3">
+            Skill feature box
+        </div>
+        <div class="col-1-3">
+            Skill feature box
+        </div>
+        <div class="col-1-3">
+            Skill feature box
+        </div>
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1">
+            blurb about skills
+            <p class="p-ctr"><a class="link-btn" href="{% url 'projects:all' %}">See Examples</a></p>
+        </div>
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1 main-content-title">
+            <h2>Work Experience</h2>
+        </div>
+        <div class="col-1-2">
+            Job here
+        </div>
+        <div class="col-1-2">
+            Job here
+        </div>
+        <div class="col-1-2">
+            Job here
+        </div>
+        <div class="col-1-2">
+            Job here
+        </div>
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1 main-content-title">
+            <h2>Education</h2>
+        </div>
+        <div class="col-1-2">
+            Class here
+        </div>
+        <div class="col-1-2">
+            Class here
+        </div>
+        <div class="col-1-2">
+            Class here
+        </div>
+        <div class="col-1-2">
+            Class here
+        </div>
+    </div>
+{% endblock %}

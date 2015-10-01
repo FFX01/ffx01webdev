@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block main %}
+    <div class="row clearfix main-content">
+        <div class="col-1-1 main-content-title">
+            <h2>Recently Updated Projects</h2>
+        </div>
+        {% if projects %}
+            {% for project in projects %}
+                <div class="col-1-4 feature-box">
+                    <h3><a href="{% url 'projects:single_project' slug=project.slug %}">{{project.title}}</a></h3>
+                    <p>{{project.timestamp}}</p>
+                    <img src="{{project.image.url}}" width="80%">
+                    <p>{{project.blurb}}</p>
+                    <p><a class="link-btn" href="{% url 'projects:single_project' slug=project.slug %}">View Project</a></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>Nothing to see here.</h2>
+        {% endif %}
+    </div>
+    <div class="row clearfix main-content">
+        <div class="col-1-1 main-content-title">
+            <h2>Recent Blog Posts</h2>
+        </div>
+        {% if posts %}
+            {% for post in posts %}
+                <div class="col-1-4 feature-box">
+                    <h3><a href="{% url 'blog:single_post' slug=post.slug %}">{{post.title}}</a></h3>
+                    <img src="{{post.image.url}}" width="80%">
+                    <p>{{post.author}}</p>
+                    <p>{{post.timestamp}}</p>
+                    <p><a class="link-btn" href="{% url 'blog:single_post' slug=post.slug %}">View Blog</a></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>Nothing to see here.</h2>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+*.sqlite3
+todo.txt
+test_app
+__pycache__
+*.pyc
+*.sqlite3
